@@ -51,7 +51,7 @@ public class DemoApplication {
 
         //Random random = new Random();
         //int statusCode = random.nextInt(100) + 300; // Generates a random number between 300 and 500 (inclusive)
-        return HttpStatus.valueOf(statusCode);
+        return HttpStatus.valueOf(randomHttpErrorCode);
     }
 
 	private static int getRandomIndex(int listSize) {
