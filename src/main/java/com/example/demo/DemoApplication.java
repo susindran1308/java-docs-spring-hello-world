@@ -17,4 +17,16 @@ public class DemoApplication {
 	String sayHello() {
 		return "Hello Azure!";
 	}
+
+	@RequestMapping("/status")
+    ResponseEntity<String> status() {
+        HttpStatus randomStatus = getRandomStatusCode();
+        return ResponseEntity.status(randomStatus).body("Hello Azure! Random Status: " + randomStatus);
+    }
+
+    private HttpStatus getRandomStatusCode() {
+        Random random = new Random();
+        int statusCode = random.nextInt(201) + 300; // Generates a random number between 300 and 500 (inclusive)
+        return HttpStatus.valueOf(statusCode);
+    }
 }
