@@ -12,11 +12,11 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: function-sanity # set this to your function app name on Azure
   PACKAGE_DIRECTORY: '.' # set this to the directory which contains pom.xml file
-  JAVA_VERSION: '11' # set this to the java version to use
+  JAVA_VERSION: '17' # set this to the java version to use
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v2
@@ -38,6 +38,6 @@ jobs:
         with:
           app-name: 'function-sanity'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_958F3444D3B5434D8F969A884DBD70D7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2E41235583E47BFB93A873CAAC1E2F1 }}
           package: '${{ env.PACKAGE_DIRECTORY }}'
           respect-pom-xml: true
